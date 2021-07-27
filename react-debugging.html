@@ -55,6 +55,7 @@
               <Card
                 drawCard={this.drawCard}
                 shuffle={this.shuffle}
+                hand={this.state.hand}   
               />
             </>
           )
@@ -62,8 +63,9 @@
       }
 
       // file: src/components/Card.js
+
       class Card extends React.Component{
-        render(){
+          render(){
           // No need to change the handStyles or cardStyles variables
           let handStyles = {
             display: "flex",
@@ -77,12 +79,12 @@
             margin: "10px",
             padding: "10px"
           }
-          return(
+            return(
             <>
-              <button onClick={}>
+              <button onClick={this.props.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              <button onClick={this.props.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
